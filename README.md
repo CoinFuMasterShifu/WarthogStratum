@@ -78,7 +78,7 @@ There are two kind of events that sent from the pool: `"mining.notify"` and `"mi
   ]
 }
 ```
-#### Notable differences from Bitcoin's stratum protocol:
+#### Notable differences from Bitcoin's Stratum protocol:
 This method has only 7 parameters instead of 9 parameters in Bitcoin's stratum protocol. Bitcoin's stratum protocol's third (coinbase 1) and fourth (coinbase 2) parameters are not necessary in Warthog. Furthermore instead of Bitcoin's *Merkle branches* parameter we have a Merkle prefix parameter. Merkle root is computed as follows:
 
 #### Merkle root computation
@@ -105,6 +105,10 @@ Bytes | Meaning
   ]
 }
 ```
+#### Notable differences from Bitcoin's Stratum protocol
+In contrast to Bitcoin's stratum protocol the target is just the inverse of the difficulty. In Bitcoin there is an additional factor of 2^32 involved for historical reasons. Since Warthog was written from scratch, it not carry this historical burden.
+This means the miner must meet the target `1/difficulty` to mine a share. 
+TODO: explain how PoBW works in Warthog.
 
 ## Events pushed from miner to pool
 ### Mining.submit
