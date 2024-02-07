@@ -69,11 +69,11 @@ There are two kind of events that sent from the pool: `"mining.notify"` and `"mi
   "method": "mining.notify",
   "params": [
     "jobId",         # jobId has to be sent back on submission
-    "prevHash",      # previous hash in block header
-    "merklePrefix",  # prefix of 
-    2,               # version
-    "nbits",         # nbits, difficulty target
-    "ntime",         # ntime, timestamp in block header
+    "prevHash",      # hex encoded previous hash in block header
+    "merklePrefix",  # hex encoded prefix of 
+    "version",       # hex encoded block version
+    "nbits",         # hex encoded nbits, difficulty target
+    "ntime",         # hex encoded ntime, timestamp in block header
     false            # clean? If yes, discard old jobs.
   ]
 }
@@ -118,7 +118,6 @@ When the miner has found nonce and extranonce2 such that the block is
   "id": 4,
   "method": "mining.submit",
   "params": [
-    "workername",  # worker name (ignored in shifupool)
     "jobId",       # jobId from mining.notify
     "0000",        # extranonce2 hex
     "a5b378fe",    # time hex (in shifupool equal to ntime from mining.notify)
