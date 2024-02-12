@@ -4,6 +4,7 @@ We cover the following:
 - Stratum Protocol for Warthog
 - Pool Dev Guide
 - Miner Dev Guide
+- Integration List
 <hr/>
 
 # Stratum Protocol for Warthog
@@ -329,3 +330,11 @@ This gives us the following approach:
 Note:
 * Above in 2. we use the quotient of CPU and GPU hashrates on verushash, sha256t respectively. The idea behind the band [`c`, `c+hr_CPU/hr_GPU`] is that on average, the number of sha256t hashes that fall into this band will be at rate `hr_CPU`, so this strategy will produce header candidates in the CPU queue at exactly the rate the CPU can handle.
 * To evaluate janushash number representation in 4. above, we should copy not only the headers but also the first 4 bytes of the evaluated sha256t hash from GPU device to host memory. Otherwise we would need to evaluate `sha256t(header)` again.
+
+
+# Integration list
+## Pools
+* [acc-pool](https://warthog.acc-pool.pw/)
+
+## Miners
+* [Janusminer](https://github.com/CoinFuMasterShifu/janusminer) (open source)
